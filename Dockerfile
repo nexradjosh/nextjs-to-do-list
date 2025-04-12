@@ -12,6 +12,9 @@ ARG NODE_VERSION=20
 # Use node image for base image for all stages.
 FROM node:${NODE_VERSION}-alpine as base
 
+# Install Python and build dependencies
+RUN apk add --no-cache python3 make g++ gcc
+
 # Set working directory for all build stages.
 WORKDIR /usr/src/app
 
